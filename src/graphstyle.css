@@ -1,0 +1,236 @@
+.graph-content-wrapper {
+    display: flex;
+    max-width: 1120px;
+    margin: 0 auto;
+    flex-direction: column-reverse;
+}
+
+/* .graph-content-section1 {
+    width: 100%;
+}
+
+.graph-content-section2{
+    width: 100%;
+} */
+
+.graph-content-section2-subsection {
+    width: calc(50% - 40px);
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.saving-header {
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.saving-total {
+    font-size: 40px;
+    line-height: 1;
+    font-weight: bold;
+    font-family: inter;
+}
+
+.tertiary-text {
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 500;
+    font-family: inter;
+    margin-bottom: 24px;
+}
+
+.graph-input-1 {
+    font-size: 24px;
+    line-height: 1;
+    border: 0;
+    border-bottom: 1px dashed black;
+    width: 120px;
+    margin-bottom: 40px;
+}
+
+.graph-input-dollarsign {
+    font-size: 24px;
+    line-height: 1;   
+    font-family: inter;
+    border-bottom: 1px dashed black;
+}
+
+.graph-input-2 {
+    font-size: 24px;
+    line-height: 1;
+    border: 0;
+    border-bottom: 1px dashed black;
+    width: 40px;
+    margin-bottom: 40px;
+}
+
+.graph-input-years {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.other-roi-input {
+    border: none;
+    border-image: initial;
+   
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 600;
+    font-family: Inter;
+    width: 40px;
+}
+
+.other-roi-wrapper {
+    border-bottom: 1px dashed black;
+}
+
+.other-roi-wrapper span{
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 600;
+    font-family: Inter;
+}
+
+.MuiSlider-root.sliders {
+    display: none;
+}
+
+.saving-terms {
+    font-size: 12px;
+    margin-top: 12px;
+    color: #212121;
+    opacity: 0.45;
+    line-height: 1.3;
+}
+
+.graph-tooltip::before {
+    position: absolute;
+    content: "";
+    bottom: -17px;
+    left: 50%;
+    transform: translate(-50%);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 16px solid rgba(33, 33, 33, 0.07);
+}
+
+.graph-tooltip::after {
+    position: absolute;
+    content: "";
+    bottom: -15px;
+    left: 50%;
+    transform: translate(-50%);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #ffffff;
+  } 
+
+  .graph-tooltip {
+      width: 335px;
+      top: -250px;
+  }
+
+  .graph-tooltip-primary-value {
+    font-size: 20px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-top: 25px;
+  }
+
+  .graph-tooltip-secondary-text{
+     font-size: 14px;
+     line-height: 1.1;
+     font-weight: 600;
+  }
+
+  .graph-tooltip tbody tr {
+     padding: 15px 3px;
+  }
+
+
+
+@media screen and (min-width: 960px) {
+
+    .graph-tooltip tbody tr {
+        padding: 15px 25px;
+        /* width: 50%; */
+     }
+
+     
+    .graph-tooltip-primary-value {
+        font-size: 32px;
+    }
+
+    .graph-tooltip-secondary-text{
+        font-size: 16px;
+    }
+
+    .graph-tooltip {
+        width: 450px;
+        top: -285px;
+    }
+
+    .graph-content-wrapper {
+        flex-direction: row;
+    }
+
+    .MuiSlider-root.sliders {
+        display: inline-block;
+    }
+
+    .graph-content-section1 {
+        /* width: 50%; */
+        flex: 5;
+    }
+
+    .graph-content-section2 {
+        /* width: 50%; */
+        flex: 4;
+    }
+
+    .other-roi-wrapper span{
+        font-size: 20px;
+    }
+
+    .other-roi-input {
+        font-size: 20px;
+        width: 50px;
+    }
+
+    .saving-header {
+        font-size: 32px;
+    } 
+    
+    .saving-total {
+        font-size: 104px;
+    }
+    
+    .tertiary-text {
+        font-size: 24px;
+    }
+
+    .graph-input-1 {
+        font-size: 40px;
+        width: 170px;
+    }
+
+    .graph-input-dollarsign {
+        font-size: 40px;  
+    }    
+
+    .graph-input-2 {
+        font-size: 40px;
+        width: 55px;
+    }
+
+    .graph-input-years {
+        font-size: 20px;
+    }
+
+    .saving-terms {
+        font-size: 16px;
+        margin-top: 24px;
+        padding-right: 10%;
+    }
+
+}
