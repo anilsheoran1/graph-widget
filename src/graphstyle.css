@@ -1,3 +1,8 @@
+.tabs {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .graph-content-wrapper {
     display: flex;
     max-width: 1120px;
@@ -22,6 +27,8 @@
 .saving-header {
     font-size: 20px;
     line-height: 1.2;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
 .saving-total {
@@ -32,36 +39,33 @@
 }
 
 .tertiary-text {
-    font-size: 16px;
-    line-height: 1;
+    font-size: 20px;
+    line-height: 1.3;
     font-weight: 500;
     font-family: inter;
-    margin-bottom: 24px;
+    margin-bottom: 6px;
 }
 
 .graph-input-1 {
     font-size: 24px;
     line-height: 1;
     border: 0;
-    border-bottom: 1px dashed black;
     width: 120px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .graph-input-dollarsign {
     font-size: 24px;
     line-height: 1;   
     font-family: inter;
-    border-bottom: 1px dashed black;
 }
 
 .graph-input-2 {
     font-size: 24px;
     line-height: 1;
     border: 0;
-    border-bottom: 1px dashed black;
-    width: 40px;
-    margin-bottom: 40px;
+    width: 55px;
+    margin-bottom: 20px;
 }
 
 .graph-input-years {
@@ -77,11 +81,12 @@
     line-height: 1;
     font-weight: 600;
     font-family: Inter;
-    width: 40px;
+    width: 45px;
+    padding-right: 0;
 }
 
 .other-roi-wrapper {
-    border-bottom: 1px dashed black;
+    background: #ffffff;
 }
 
 .other-roi-wrapper span{
@@ -103,10 +108,10 @@
     line-height: 1.3;
 }
 
-.graph-tooltip::before {
+.graph-tooltip #tooltip-arrow::before {
     position: absolute;
     content: "";
-    bottom: -17px;
+    bottom: -36px;
     left: 50%;
     transform: translate(-50%);
     border-left: 15px solid transparent;
@@ -114,10 +119,10 @@
     border-top: 16px solid rgba(33, 33, 33, 0.07);
 }
 
-.graph-tooltip::after {
+.graph-tooltip #tooltip-arrow::after {
     position: absolute;
     content: "";
-    bottom: -15px;
+    bottom: -35px;
     left: 50%;
     transform: translate(-50%);
     border-left: 15px solid transparent;
@@ -126,48 +131,69 @@
   } 
 
   .graph-tooltip {
-      width: 335px;
-      top: -250px;
+      min-width: 350px;
+      top: -215px;
   }
 
   .graph-tooltip-primary-value {
     font-size: 20px;
-    line-height: 1.1;
+    line-height: 1.2;
     font-weight: 700;
-    margin-top: 25px;
+    margin-top: 15px;
   }
 
   .graph-tooltip-secondary-text{
-     font-size: 14px;
-     line-height: 1.1;
-     font-weight: 600;
+     font-size: 11px;
+     line-height: 1.7;
+     font-weight: normal;
   }
 
   .graph-tooltip tbody tr {
      padding: 15px 3px;
   }
 
+  .button.active {
+    border-bottom: 4px solid black !important;
+    }
+    .button {
+        /* opacity: 0.07; */
+        border-bottom: 4px solid #f5f5f5 !important;
+    }
+
+    .MuiSlider-root .MuiSlider-thumb:hover {
+        box-shadow: 0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)
+    }
+
+    .MuiSlider-root .MuiSlider-thumb{
+        transition: none;
+        box-shadow: 0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)
+    }
+
+    .MuiSlider-root .MuiSlider-thumb.Mui-focusVisible {
+        box-shadow: none;   
+    }
+
 
 
 @media screen and (min-width: 960px) {
 
     .graph-tooltip tbody tr {
-        padding: 15px 25px;
-        /* width: 50%; */
+        padding: 0 20px;
+        flex: 1;
      }
 
      
     .graph-tooltip-primary-value {
-        font-size: 32px;
+        font-size: 22px;
     }
 
     .graph-tooltip-secondary-text{
-        font-size: 16px;
+        font-size: 11px;
     }
 
     .graph-tooltip {
-        width: 450px;
-        top: -285px;
+        /* width: 360px; */
+        top: -215px;
     }
 
     .graph-content-wrapper {
@@ -176,16 +202,15 @@
 
     .MuiSlider-root.sliders {
         display: inline-block;
+        max-width: 208px;
     }
 
     .graph-content-section1 {
-        /* width: 50%; */
-        flex: 5;
+        flex: 4;
     }
 
     .graph-content-section2 {
-        /* width: 50%; */
-        flex: 4;
+        flex: 5;
     }
 
     .other-roi-wrapper span{
@@ -198,33 +223,38 @@
     }
 
     .saving-header {
-        font-size: 32px;
+        font-size: 24px;
     } 
     
     .saving-total {
-        font-size: 104px;
+        font-size: 72px;
+        line-height: 1.1;
     }
     
-    .tertiary-text {
-        font-size: 24px;
-    }
-
     .graph-input-1 {
-        font-size: 40px;
-        width: 170px;
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 1.2;
+        width: calc(100% - 30px);;
     }
 
     .graph-input-dollarsign {
-        font-size: 40px;  
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 1.2;  
     }    
 
     .graph-input-2 {
-        font-size: 40px;
-        width: 55px;
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 1.2;
+        padding-right: 5px;
     }
 
     .graph-input-years {
-        font-size: 20px;
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 1.2;
     }
 
     .saving-terms {

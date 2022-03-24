@@ -19,5 +19,5 @@ mode: 'development',
    use: ["style-loader", "css-loader"]
   }
 ]},
- plugins: [htmlPlugin, new BundleAnalyzerPlugin()]
+ plugins: [htmlPlugin]
 };

@@ -7,11 +7,11 @@ function getGradient(ctx, chartArea) {
     // or the size of the chart has changed
     width = chartWidth;
     height = chartHeight;
-    gradient = ctx.createLinearGradient( chartArea.left, 0, chartArea.right, 0);
+    gradient = ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0);
     gradient.addColorStop(0, "#F5C05A");
     gradient.addColorStop(0.35, "#EB88B1");
     gradient.addColorStop(0.56, "#B965E4");
-    gradient.addColorStop(1, "#61A6F9");  
+    gradient.addColorStop(1, "#61A6F9");
   }
 
   return gradient;
