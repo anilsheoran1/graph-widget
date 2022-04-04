@@ -1,26 +1,20 @@
 import React from "react";
 import Slider from "@mui/material/Slider";
+import Input from './input';
 
 export default function LoanAmountSection({ loanAmount, setLoanAmount }) {
   return (
     <div className="graph-content-section2-subsection">
       <div className="tertiary-text">Loan Amount</div>
       <div className="graph-input-wrapper">
-        <span className="graph-input-dollarsign">$</span>
-        <input
-          className="graph-input-1"
-          type="text"
-          value={loanAmount.toLocaleString()}
-          onChange={(e) =>
-            setLoanAmount(Number(e.target.value.replace(/\D/g, "")))
-          }
-        />
+         <Input className="graph-input-1" offset={20} style={{marginBottom: 20}}  type="text" value={loanAmount.toLocaleString()} prefix="$" setInput={setLoanAmount}/> 
       </div>
       <Slider
         className="sliders"
         size="small"
         value={loanAmount}
-        max={10000000}
+        max={3000000}
+        min={10000}
         aria-label="Small"
         valueLabelFormat={(value) => <div>in {value} year</div>}
         onChange={(e, val) => setLoanAmount(val)}

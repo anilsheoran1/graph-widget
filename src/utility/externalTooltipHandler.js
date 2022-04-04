@@ -5,7 +5,7 @@ const getOrCreateTooltip = (chart) => {
       tooltipEl = document.createElement('div');
       tooltipEl.classList.add('graph-tooltip');
       tooltipEl.id = "graph-tooltip";
-      tooltipEl.style.background = '#ffffff';
+      tooltipEl.style.background = 'inherit';
       tooltipEl.style.borderRadius = '20px';
       tooltipEl.style.border = '1px solid rgba(33, 33, 33, 0.07)',
       tooltipEl.style.color = '#000000';
@@ -14,8 +14,9 @@ const getOrCreateTooltip = (chart) => {
       tooltipEl.style.position = 'absolute';
       tooltipEl.style.transform = 'translate(-50%, 0)';
       tooltipEl.style.transition = 'all .1s ease';
-      tooltipEl.style.padding = "20px 0";
+      tooltipEl.style.padding = "16px 0px 20px 0";
       tooltipEl.style.zIndex = "2";
+      tooltipEl.style.backdropFilter= "blur(15px)";
 
       const table = document.createElement('table');
       table.style.width = '100%';
@@ -77,7 +78,7 @@ const getOrCreateTooltip = (chart) => {
       bodyLines.forEach((body, i) => {
         const colors = tooltip.labelColors[i];
   
-        const span = document.createElement('span');
+        const span = document.createElement('div');
         var spanContent;
         if(i === 0){
            spanContent = document.createTextNode("Unloan");
@@ -91,10 +92,8 @@ const getOrCreateTooltip = (chart) => {
         span.style.lineHeight = '1.3';
         span.style.borderWidth = '2px';
         span.style.borderRadius = '100px';
-        span.style.marginRight = '10px';
         span.style.height = '22px';
         span.style.maxWidth = '142px';
-        span.style.display = 'inline-block';
         span.style.textAlign = 'center';
         span.style.fontWeight = "600";
 
@@ -109,7 +108,8 @@ const getOrCreateTooltip = (chart) => {
         td.style.borderWidth = 0;
   
         const div = document.createElement('div');
-        const roi = document.createTextNode(  body[0].split(':')[1] + "%" );
+        const roiData= body[0].split(':')[1];
+        const roi = document.createTextNode( Number(roiData.trim()).toFixed(2)  + "%" );
         div.classList.add('graph-tooltip-primary-value');
         div.appendChild(roi);
         const roidiv = document.createElement('div');
@@ -141,7 +141,7 @@ const getOrCreateTooltip = (chart) => {
       const tableRoot = tooltipEl.querySelector('table');
   
       // Remove old children
-      while (tableRoot.firstChild) {
+      while (tableRoot && tableRoot.firstChild) {
         tableRoot.firstChild.remove();
       }
   

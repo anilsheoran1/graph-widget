@@ -23,6 +23,7 @@ import Tabs from "./tabs";
 import TotalSaving from "./totalSaving";
 import LoanAmountSection from "./loanAmountSection";
 import LoanTermSection from "./loanTermSection";
+import Input from './input'
 
 ChartJS.register(
   CategoryScale,
@@ -45,6 +46,7 @@ export function Unloangraph() {
   const [otherLoanROI, setOtherLoanROI] = useState(3.32);
   const labels = Array.from(Array(loanTerm).keys());
   const otherRoiInputRef = useRef();
+  const unloanRoiInputRef = useRef();
   const [unloanYearlyRepayment, setUnloanYearlyRepayment] = useState([]);
   const [otherBankYearlyRepayment, setOtherBankYearlyRepayment] = useState([]);
   const [unloanTotalRepayment, setUnloanTotalRepayment] = useState();
@@ -160,11 +162,17 @@ export function Unloangraph() {
           if (meta.data[len]) {
             const yOffset = meta.data[len].y;
             if (i == 0) {
-              ctx.fillText(label, chart.canvas.width - 10, yOffset);
+              //ctx.fillText(label, chart.canvas.width - 10, yOffset);
               const unLoanDiv = document.getElementById("unloan-location");
               unLoanDiv.dataset.x = xOffset;
               unLoanDiv.dataset.ystart = meta.data[0].y;
               unLoanDiv.dataset.yend = yOffset;
+              if(unloanRoiInputRef){
+                unloanRoiInputRef.current.style.top = yOffset - 15 + "px";
+                unloanRoiInputRef.current.style.right = "35px";
+                unloanRoiInputRef.current.style.position = "absolute";
+                unloanRoiInputRef.current.children[0].value = label;
+              }
             }
             const otherLoanDiv = document.getElementById("other-loan-location");
             if (otherLoanDiv && i === 1) {
@@ -172,7 +180,7 @@ export function Unloangraph() {
               otherLoanDiv.dataset.y = yOffset;
               if (otherRoiInputRef) {
                 otherRoiInputRef.current.style.top = yOffset - 15 + "px";
-                otherRoiInputRef.current.style.right = "20px";
+                otherRoiInputRef.current.style.left = 'calc(100% - 90px)';
                 otherRoiInputRef.current.style.position = "absolute";
               }
             }
@@ -206,7 +214,7 @@ export function Unloangraph() {
           }
           return getGradient(ctx, chartArea);
         },
-        repaymentData: otherBankYearlyRepayment,
+        repaymentData: unloanYearlyRepayment,
       },
       {
         label: otherLoanROI + "%",
@@ -220,7 +228,7 @@ export function Unloangraph() {
         pointBorderWidth: "0",
         pointBorderColor: "transparent",
         pointBackgroundColor: "transparent",
-        repaymentData: unloanYearlyRepayment,
+        repaymentData: otherBankYearlyRepayment,
       },
     ],
   };
@@ -250,13 +258,10 @@ export function Unloangraph() {
         style={{ maxWidth: "1167px",  margin: "0 auto", position: "relative" }}
       >
         <span className="other-roi-wrapper" ref={otherRoiInputRef}>
-          <input
-            className="other-roi-input"
-            type="text"
-            value={otherLoanROI}
-            onChange={(e) => setOtherLoanROI(e.target.value)}
-          />
-          <span>%</span>
+          <Input className="other-roi-input" offset={0} type="number" value={otherLoanROI} suffix="%" setInput={setOtherLoanROI}/> 
+        </span>
+        <span className="unloan-roi" ref={unloanRoiInputRef}>
+          <input className="unloan-roi-input" value="" disabled></input>
         </span>
         {unloanTotalRepayment && otherBankTotalRepayment && (
           <Line

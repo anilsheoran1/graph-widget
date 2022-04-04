@@ -1,3 +1,51 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input-wrapper  {
+    font-size: 1em;
+    display: flex;
+    /* overflow: hidden; */
+    width: fit-content;
+    border: 1px solid transparent;
+  }
+
+  
+.input-wrapper:focus-within {
+    border: 1px solid black;
+  }
+
+  .input-wrapper:focus {
+    border: 1px solid black;
+  }
+  
+  #hide {
+    position: absolute;
+    opacity: 0;
+    z-index: -100;
+    white-space: pre;
+    border: none;
+  }
+  
+  .input-wrapper input {
+    min-width: 1px;
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+
+  .input-wrapper input:focus-visible {
+    border: none;
+  }
+
 .tabs {
     text-align: center;
     margin-bottom: 20px;
@@ -50,8 +98,8 @@
     font-size: 24px;
     line-height: 1;
     border: 0;
-    width: 120px;
-    margin-bottom: 20px;
+    /* width: 120px; */
+    /* margin-bottom: 20px; */
 }
 
 .graph-input-dollarsign {
@@ -64,8 +112,8 @@
     font-size: 24px;
     line-height: 1;
     border: 0;
-    width: 55px;
-    margin-bottom: 20px;
+    /* width: 55px; */
+    /* margin-bottom: 20px; */
 }
 
 .graph-input-years {
@@ -73,20 +121,25 @@
     font-weight: 700;
 }
 
-.other-roi-input {
+.other-roi-input, .unloan-roi-input {
     border: none;
     border-image: initial;
-   
-    font-size: 16px;
+    font-size: 19px;
     line-height: 1;
     font-weight: 600;
     font-family: Inter;
-    width: 45px;
+    /* width: 45px; */
     padding-right: 0;
+}
+
+.unloan-roi-input {
+    width: 55px;
+    background: inherit;
 }
 
 .other-roi-wrapper {
     background: #ffffff;
+    z-index: 2;
 }
 
 .other-roi-wrapper span{
@@ -94,6 +147,7 @@
     line-height: 1;
     font-weight: 600;
     font-family: Inter;
+    padding-top: 2px;
 }
 
 .MuiSlider-root.sliders {
@@ -170,7 +224,7 @@
     }
 
     .MuiSlider-root .MuiSlider-thumb.Mui-focusVisible {
-        box-shadow: none;   
+        box-shadow: 0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)   
     }
 
 
@@ -219,7 +273,7 @@
 
     .other-roi-input {
         font-size: 20px;
-        width: 50px;
+        /* width: 50px; */
     }
 
     .saving-header {
@@ -235,7 +289,7 @@
         font-size: 35px;
         font-weight: 700;
         line-height: 1.2;
-        width: calc(100% - 30px);;
+        /* width: calc(100% - 30px);; */
     }
 
     .graph-input-dollarsign {
@@ -248,7 +302,7 @@
         font-size: 35px;
         font-weight: 700;
         line-height: 1.2;
-        padding-right: 5px;
+        /* padding-right: 5px; */
     }
 
     .graph-input-years {

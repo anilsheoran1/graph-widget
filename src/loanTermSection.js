@@ -1,24 +1,27 @@
 import React from "react";
 import Slider from "@mui/material/Slider";
+import Input from './input'
 
 export default function LoanTermSection({ loanTerm, setLoanTerm }) {
   return (
     <div className="graph-content-section2-subsection">
       <div className="tertiary-text">Loan Term</div>
-      <div className="graph-input-wrapper">
-        <input
+      <div className="graph-input-wrapper" >
+        {/* <input
           className="graph-input-2"
           type="text"
           value={loanTerm}
           onChange={(e) => setLoanTerm(Number(e.target.value))}
         />
-        <span className="graph-input-years">years</span>
+        <span className="graph-input-years">years</span> */}
+        <Input className="graph-input-2" offset={5} style={{marginBottom: 20}}  type="text" value={loanTerm} suffix="years" setInput={setLoanTerm}/>
       </div>
       <Slider
         className="sliders"
         size="small"
         value={loanTerm}
         max={30}
+        min={1}
         aria-label="Small"
         valueLabelFormat={(value) => <div>in {value} year</div>}
         onChange={(e, val) => setLoanTerm(val)}
